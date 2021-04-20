@@ -1,0 +1,38 @@
+<div class="container">
+<!--  <ul class="nav justify-content-end">-->
+<!--    <li class="nav-item">-->
+<!--      <a class="nav-link active" aria-current="page" href="#">Active</a>-->
+<!--    </li>-->
+<!--    <li class="nav-item">-->
+<!--      <a class="nav-link" href="#">Link</a>-->
+<!--    </li>-->
+<!--    <li class="nav-item">-->
+<!--      <a class="nav-link" href="#">Link</a>-->
+<!--    </li>-->
+<!--    <li class="nav-item">-->
+<!--      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--    </li>-->
+<!--  </ul>-->
+  <div class="mt-5">
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Введите данные в формате JSON</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="textToJSON"></textarea>
+    </div>
+    <button type="button" class="btn btn-outline-primary mt-3 " (click)="redactorText()">Редактировать</button>
+  </div>
+  <br/>
+  <div>
+    <label for="formFileLg" class="form-label">Или загрузите файл CSV</label>
+    <input class="form-control form-control-lg upload" id="formFileLg" type="file" (change)="changeListener($event.target.files)">
+    <button type="button" class="btn btn-outline-primary mt-3" (click)="redactorFile()">Редактировать</button>
+  </div>
+
+
+  <div class="mt-5">
+    <div class="form-group">
+      <label for="result">Результат</label>
+      <textarea class="form-control" id="result" rows="3" [(ngModel)]="redactorService.outputData"></textarea>
+    </div>
+    <button type="button" class="btn btn-outline-primary mt-3" (click)="download()">Скачать в CSV</button>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+
+  <div cdkDropList (cdkDropListDropped)="drop($event)" class="Scroll example-list">
+    <div class="Keys">
+      <button class="btn BTN btn-success" (click)="save()" >Сохранить</button>
+      <div class="item" *ngFor="let key of redactorService.keys let j = index">
+        {{key}}
+      </div>
+    </div>
+    <div class="Data">
+      <div cdkDrag class="data example-box"
+           *ngFor="let text of redactorService.jsonData let i = index">
+        <button class="btn BTN btn-danger" (click)="del(i)">Удалить</button>
+        <div class="text" *ngFor="let key of redactorService.keys let j = index">
+          <input type="text" class="form-control" placeholder="{{key}}"
+                 value="{{text[key]}}"
+                 (change)="onChangeText($event, i, key)">
+        </div>
+      </div>
+    </div>
+  </div>
+
